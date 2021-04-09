@@ -1,34 +1,12 @@
-## Final Project: Script 1
-### Web-scraping Weather Forecast Information with Python
-In this lab, you will work with a script that scrapes the 5-day weather forecast from the National Weather Service website. The script extracts information from multiple elements listed under the same class name using the BeautifulSoup library. 
+# Python Module IDCE302-01-S21
+# David Smith 
+# Finial Project 
+# 04/07/2021 
 
-- Download the `NWS_WeatherForecast.py` file and run it in your local IDE or open it, then copy/paste it into a code cell in a new Colab notebook.
-
-- Read the description and comments in the script to understand the purpose of the script
-
-- Run the script. You will see some packages being installed when you run it for the first time.
-
-- The script returns the 5-day forecast for Worcester, MA (Lat: 42.2634, Lon: -71.8022) with the latitude and longitude information provided. Using the latitude and longitude values, it generates the following URL through string concatenation: https://forecast.weather.gov/MapClick.php?lat=42.2634&lon=-71.8022
-
-- Open this URL in a Firefox or Chrome browser. Locate the information that is being outputted in our script. Right click on this and select the Inspect Element option. This will launch the Inspector window that helps locate different elements on the page.
-
-- Notice that all forecast containers in this section are located in the `forecast-tombstone` class inside the `li` tag. In order to scrape multiple elements listed under the same class name, we utilize the `findAll()` function from BeautifulSoup. The tag and class names are required arguments for this function.
-
-### Edit the NWS_ WeatherForecast.py script to add the following functionality:
-1. Take latitude and longitude values as inputs in decimal degrees from user
-
-2.	Convert the latitude and longitude values to strings to generate the URL for the selected location. Pass this URL as an argument in the `get()` request.
-
-3.	The returned forecast information did not preserve its spacing during the scraping process. Using the `replace()` function, fix any spacing issues with the output
-
-4.	Convert the final output to uppercase
-
-Remember to update your file to include comments and documentation in your script to tell me what it’s doing!
-
-## Final Project: Script 2
-### Your Chosen Assignment
-For this script, you will complete the assignment that you have proposed, which involves creating a new script, completing an online tutorial, or modifying a previous exercise or lab. You'll need to save that file or notebook into this repo: be sure to include comments and documentation in your script to tell me what it’s doing!
-
-## Final Project: Documentation
-### Changing this README
-Your write-up will be here, on this README page. You will need to edit this page with your new text: you do **not** need to keep these instructions on your README! 
+Script #1 is a web scrapping code block that prompts a user to enter a location's latitude and longitude in which they would like to know the five-day forecast. For example, if someone were interested in the five-day forecast of San Antonio, Texas, they would enter a latitude of "29.4241" and a longitude of "-98.4936" into the input boxes displayed. The scripts start using the input function to show a box for a user to type inside. Since we ask for numbers, the following sequence of the script converts the numbers to a string used to generate a unique URL. From here, the script dives into the internet using the uniquely defined URL link that has been append with the users' inputs. For the scraper to find the five-day forecast using the unique URL, two packages need to be imported into the script. The first is called request, and the second is Beautifulsoup – which comes from the updated bs4 beautifulsoup library package. The package "request" allows you to send HTTP requests easily by passing a URL for it to get from the web. Once your request has been picked up, the returned HTTP jumble can be challenging to read. The package "Beautifulsoup" is a python library that provides a user an idiomatic way to read HTML and XML files.
+The variable weather_forecast uses the organized soup to identify the web page's tag that holds our five-day forecast.  In our case, the tags we want are housed together as different elements inside the same class, so within the soup, all the class elements we want- need to be grabbed. This was done using the findAll tool. The findAll tool locates all occurrences of a given div tag and stores it inside the Beautifulsoup.  Now that the scraper has grabbed the weather forecast, it's time to manipulate the return values into an excellent output. First, a for loop runs through the Beautifulsoup and pulls the text, then appends it to the forecast. This forecast output is separated into days and printed; however, the websites format hasn't been preserved. To reformat the text into a nice-looking output, a series of replacements is made to add in additional spaces and formatting for the text areas that need to be formatted. Finally, the result is converted entirely to uppercase using the .upper tool, and the five-day forecast is printed. 
+Script#2 was made by following along with an introduction to python for use inside of Esri's ArcPro GIS software. I use ArcPro very often, and any way I can learn to automate a task is beneficial, but I hadn't ever used the python interface within ArcPro. There are a few options for working with python within ArcPro, the first and most straightforward being to use a python window. The python window is a simple interface that can be used to do math or run tools but is generally used for quick functions. Another option is to use a python notebook. A python notebook within ArcPro is very similar to a google colab notebook. It uses a combination of code blocks and markdown language blocks. For large projects, a python notebook is an obvious way to organize code because a user can manipulate the code's deliverable nature. The tutorial also walked through using an integrated DeveLopment Environment (IDLE) python editor, which comes standard when downloading python to a computer. The IDLE I used on my windows computer was challenging to work with; it only runs code one line at a time. A user can't script freely but instead has to write code line by line, running each line before the next is written. The Python notebook is preferable for this reason. 
+The tutorial focused on introducing python in ArcPro with the use of a tool called GetCount. GetCount is an available geoprocessing tool that can be run from within the ArcPro toolbox, and many clicks can be saved by running the tool using python. There is no batch count option for running the GetCount tool from the toolbox, so a user would have to run the tool as many times as there are feature classes that need to be counted. The associated python script solves that time-consuming problem. The first section of script#1 sets up the ArcPro python environment by navigating to the data folder defined as the workspace. Once this is defined in the script, the rest of the functions will refer to this data. Next, a list of feature classes is determined using the arcpy library (this library doesn't need to be imported when working inside ArcPro, but does when working inside the IDLE). These feature classes are shapefiles housed inside the defined workspace. The script's final section runs the GetCount tool using a for loop to iterate over the feature class list, count the features, and conversationally print the result. 
+Although I followed closely with the tutorial, I modified the output to be more user-friendly. The tutorial's previous output printed the feature class names and count number separately, and this has been modified to print the name and count on the same line for each feature class. Another change made to the tutorial is the use of a python notebook, which I learned from a different tutorial. The python notebook is preferable to me for its use of markdown and separate code blocks that can be run independently.  Having learned of the python scripting options within ArcPro, I plan to use the techniques I’ve learned in this course and tutorials to automate more functions and become more dexterous with using python in everyday life.     
+![image](https://user-images.githubusercontent.com/73979215/114176326-fdb1ad00-9908-11eb-8dc6-0e10d45c2683.png)
+ 
